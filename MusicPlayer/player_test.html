@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+
+    <title>星声</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <link href="http://v3.bootcss.com/assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="http://v3.bootcss.com/examples/starter-template/starter-template.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.2/css/swiper.min.css">
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="http://v3.bootcss.com/assets/js/ie-emulation-modes-warning.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.2/js/swiper.min.js"></script>
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <style>
+
+    </style>
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container" style="padding: 6px;">
+            <div class="row">
+                <div class="col-xs-8">
+                    <div class="download_logo">
+                        <img src="logo.png" alt="">
+                        <p>星声APP</p>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="download">
+                        <a id="btnOpenApp" href="https://itunes.apple.com/cn/app/%E6%98%9F%E5%A3%B0/id1217353797?mt=8" mlink-handling="true">立即打开</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div id="divFM" class="row" style="background: #f7f7f7;">
+            <img id="audioFM" width="100%" class="img-responsive" alt="加载中">
+        </div>
+        <div id="divSwiper" class="row" style="background: #f7f7f7;">
+            <div class="swiper-container">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide" style="background-image:url(http://app.starsound.xyz/user/SghpYRxU25/image/20170814/oh1hl5qjq7997eiuok17.jpg)"></div>
+                    <div class="swiper-slide">Slide 2</div>
+                    <div class="swiper-slide">Slide 3</div>
+                </div>
+                <!-- 如果需要分页器 -->
+                <div class="swiper-pagination"></div>
+            </div>
+        </div>
+        <div class="page-header" style="margin-top:10px;">
+            <h4 id="audioTitle"></h4>
+        </div>
+        <div class="row">
+            <div id="aplayer1" class="aplayer"></div>
+        </div>
+        <div class="page-header" style="margin-top:10px;"></div>
+        <div class="row" style="margin:10px;">
+            <div id="divDesc" style="text-indent:20px;"></div>
+        </div>
+
+    </div>
+    <!-- /.container -->
+
+    <style type="text/css">
+        .download_logo {
+            display: -webkit-box;
+            color: #ffa42f;
+            height: 90%;
+            -webkit-box-align: center;
+            -webkit-box-pack: start;
+            font-size: 1.6rem
+        }
+        
+        .download_logo img {
+            height: 40px;
+            width: auto;
+            margin: 0 .8rem 0 .4rem
+        }
+        
+        .download_logo p {
+            margin-top: 10px;
+        }
+        
+        .download {
+            display: -webkit-box
+        }
+        
+        .download a {
+            width: 90%;
+            height: 3.6rem;
+            display: block;
+            color: #ffa42f;
+            border: 1px solid #ffa42f;
+            border-radius: 5px;
+            text-align: center;
+            line-height: 3.6rem;
+            background: #fff;
+            font-size: 1.4rem;
+            box-sizing: content-box;
+            margin-right: .3rem
+        }
+        
+        .swiper-container {
+            width: 100%;
+            height: 300px;
+        }
+        
+        .swiper-slide {
+            background-position: center;
+            background-size: cover;
+        }
+    </style>
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+    <script>
+        window.jQuery || document.write('<script src="http://v3.bootcss.com/assets/js/vendor/jquery.min.js"><\/script>')
+    </script>
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="http://v3.bootcss.com/assets/js/ie10-viewport-bug-workaround.js"></script>
+    <script src="./dist/APlayer.min.js"></script>
+
+    <script type="text/javascript">
+        var data = {
+            "status": "1",
+            "result": [{
+                "vid": "qksxMzfETrn",
+                "is_hot": 0,
+                "title": "999",
+                "note": "文字描述文字描述文字描述文字描述文字描述文字描述文字描述文字描述文字描述文字描述文字描述文字描述文字描述文字描述文字描述",
+
+                "reurl": "http://app.starsound.xyz/user/SghpYRxU25/file/20170814/v7w31nf4drgsswxvjyap.mp3",
+                "length": 11,
+                "play_num": 0,
+                "fav_num": 0,
+                "allbackgrund": ["http://app.starsound.xyz/user/SghpYRxU25/image/20170814/oh1hl5qjq7997eiuok17.jpg", "http://wx.qlogo.cn/mmopen/AAl6RUmA2UaXV1nOpFYoHI5qOogUap4mZCQo7icibWR2R3FXWQLJbI6E8h1XKFbhyutk9iaQ2yetc9YFVgBlSZAb3iaHxWrfYgzD/0"],
+                "backgrund": "http://app.starsound.xyz/user/SghpYRxU25/image/20170814/oh1hl5qjq7997eiuok17.jpg",
+                "addtime": "2017-08-14 09:46:23",
+                "user": {
+                    "uid": "SghpYRxU25",
+                    "nickname": "Mr.李",
+                    "headpic": "http://wx.qlogo.cn/mmopen/AAl6RUmA2UaXV1nOpFYoHI5qOogUap4mZCQo7icibWR2R3FXWQLJbI6E8h1XKFbhyutk9iaQ2yetc9YFVgBlSZAb3iaHxWrfYgzD/0"
+                }
+            }]
+        };
+        $("#audioTitle").html(data.result[0].title);
+        $("#audioFM").attr("src", data.result[0].backgrund);
+        $("#divDesc").html(data.result[0].note);
+        document.title = data.result[0].title + "-星声";
+
+        $(document).ready(function() {
+            var ap = new APlayer({
+                element: document.getElementById('aplayer1'),
+                music: {
+                    title: data.result[0].title,
+                    author: data.result[0].user.nickname,
+                    pic: data.result[0].user.headpic,
+                    url: data.result[0].reurl,
+                }
+            });
+            ap.play();
+            if (data.result[0].allbackgrund.length > 0) {
+                $("#divFM").hide();
+                $("#divSwiper").show();
+
+                data.result[0].allbackgrund.forEach(function(item) {
+                    $(".swiper-wrapper").append("<div class=\"swiper-slide\" style=\"background-image:url(" + item + ")\"></div>");
+
+                });
+                var swiper = new Swiper('.swiper-container', {
+                    pagination: '.swiper-pagination',
+                    grabCursor: true,
+                    cube: {
+                        shadow: true,
+                        slideShadows: true,
+                        shadowOffset: 20,
+                        shadowScale: 0.94
+                    }
+                });
+            } else {
+                $("#audioFM").attr("src", data.result[0].backgrund);
+                $("#divSwiper").hide();
+                $("#divFM").show();
+            }
+        });
+    </script>
+</body>
+
+</html>
