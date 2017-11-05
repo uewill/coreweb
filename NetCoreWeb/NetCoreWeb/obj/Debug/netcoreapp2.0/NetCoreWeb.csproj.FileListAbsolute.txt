@@ -1,0 +1,10 @@
+D:\GitWork\NetCoreWeb\NetCoreWeb\bin\Debug\netcoreapp2.0\NetCoreWeb.deps.json
+D:\GitWork\NetCoreWeb\NetCoreWeb\bin\Debug\netcoreapp2.0\NetCoreWeb.runtimeconfig.json
+D:\GitWork\NetCoreWeb\NetCoreWeb\bin\Debug\netcoreapp2.0\NetCoreWeb.runtimeconfig.dev.json
+D:\GitWork\NetCoreWeb\NetCoreWeb\bin\Debug\netcoreapp2.0\NetCoreWeb.dll
+D:\GitWork\NetCoreWeb\NetCoreWeb\bin\Debug\netcoreapp2.0\NetCoreWeb.pdb
+D:\GitWork\NetCoreWeb\NetCoreWeb\obj\Debug\netcoreapp2.0\NetCoreWeb.csproj.CoreCompileInputs.cache
+D:\GitWork\NetCoreWeb\NetCoreWeb\obj\Debug\netcoreapp2.0\NetCoreWeb.AssemblyInfoInputs.cache
+D:\GitWork\NetCoreWeb\NetCoreWeb\obj\Debug\netcoreapp2.0\NetCoreWeb.AssemblyInfo.cs
+D:\GitWork\NetCoreWeb\NetCoreWeb\obj\Debug\netcoreapp2.0\NetCoreWeb.dll
+D:\GitWork\NetCoreWeb\NetCoreWeb\obj\Debug\netcoreapp2.0\NetCoreWeb.pdb

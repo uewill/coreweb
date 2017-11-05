@@ -1,0 +1,8 @@
+D:\GitWork\NetCoreWeb\NetCoreWeb.DAL\bin\Debug\netcoreapp2.0\NetCoreWeb.DAL.deps.json
+D:\GitWork\NetCoreWeb\NetCoreWeb.DAL\bin\Debug\netcoreapp2.0\NetCoreWeb.DAL.dll
+D:\GitWork\NetCoreWeb\NetCoreWeb.DAL\bin\Debug\netcoreapp2.0\NetCoreWeb.DAL.pdb
+D:\GitWork\NetCoreWeb\NetCoreWeb.DAL\obj\Debug\netcoreapp2.0\NetCoreWeb.DAL.csproj.CoreCompileInputs.cache
+D:\GitWork\NetCoreWeb\NetCoreWeb.DAL\obj\Debug\netcoreapp2.0\NetCoreWeb.DAL.AssemblyInfoInputs.cache
+D:\GitWork\NetCoreWeb\NetCoreWeb.DAL\obj\Debug\netcoreapp2.0\NetCoreWeb.DAL.AssemblyInfo.cs
+D:\GitWork\NetCoreWeb\NetCoreWeb.DAL\obj\Debug\netcoreapp2.0\NetCoreWeb.DAL.dll
+D:\GitWork\NetCoreWeb\NetCoreWeb.DAL\obj\Debug\netcoreapp2.0\NetCoreWeb.DAL.pdb
