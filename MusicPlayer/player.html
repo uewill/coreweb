@@ -122,7 +122,8 @@
         
         .swiper-container {
             width: 100%;
-            height: 300px;
+            height: 600px;
+            baccolor: #000;
         }
         
         .swiper-slide {
@@ -171,26 +172,33 @@
                     $("#divDesc").html(data.result[0].note);
                     document.title = data.result[0].title + "-星声";
 
-                    var ap = new APlayer({
-                        element: document.getElementById('aplayer1'),
-                        autoplay: true,
-                        mode: 'single',
-                        music: {
-                            title: data.result[0].title,
-                            author: data.result[0].user.nickname,
-                            pic: data.result[0].user.headpic,
-                            url: data.result[0].reurl,
-                        }
-                    });
-                    ap.play();
 
-
-                    if (data.result[0].allbackgrund.length > 0) {
+                    if (data.result[0].reurl != null) {
+                        var ap = new APlayer({
+                            element: document.getElementById('aplayer1'),
+                            autoplay: true,
+                            mode: 'single',
+                            music: {
+                                title: data.result[0].title,
+                                author: data.result[0].user.nickname,
+                                pic: data.result[0].user.headpic,
+                                url: data.result[0].reurl,
+                            }
+                        });
+                        ap.play();
+                    }
+                    var allbackgrund = [];
+                    var allbackgrunds = data.result[0].allbackgrund;
+                    if (allbackgrunds && allbackgrunds != "") {
+                        allbackgrund = data.result[0].allbackgrund.split(',');
+                    }
+                    if (allbackgrund.length > 1) {
                         $("#divFM").hide();
                         $("#divSwiper").show();
-                        data.result[0].allbackgrund.forEach(function(item) {
-                            $(".swiper-wrapper").append("<div class=\"swiper-slide\" style=\"background-image:url(" + item + ")\"></div>");
-
+                        allbackgrund.forEach(function(item) {
+                            if (item != 'null' && item != null && item != undefined) {
+                                $(".swiper-wrapper").append("<div class=\"swiper-slide\" style=\"background-image:url(" + item + ")\"></div>");
+                            }
                         });
                         var swiper = new Swiper('.swiper-container', {
                             pagination: '.swiper-pagination',
@@ -203,6 +211,7 @@
                             }
                         });
                     } else {
+                        console.log(data);
                         $("#audioFM").attr("src", data.result[0].backgrund);
                         $("#divSwiper").hide();
                         $("#divFM").show();

@@ -63,9 +63,6 @@
         <div id="divSwiper" class="row" style="background: #f7f7f7;">
             <div class="swiper-container">
                 <div class="swiper-wrapper">
-                    <div class="swiper-slide" style="background-image:url(http://app.starsound.xyz/user/SghpYRxU25/image/20170814/oh1hl5qjq7997eiuok17.jpg)"></div>
-                    <div class="swiper-slide">Slide 2</div>
-                    <div class="swiper-slide">Slide 3</div>
                 </div>
                 <!-- 如果需要分页器 -->
                 <div class="swiper-pagination"></div>
@@ -126,7 +123,8 @@
         
         .swiper-container {
             width: 100%;
-            height: 300px;
+            height: 600px;
+            background-color: #000;
         }
         
         .swiper-slide {
@@ -150,7 +148,7 @@
         var data = {
             "status": "1",
             "result": [{
-                "vid": "qksxMzfETrn",
+                "vid": "1BCNFfli0g",
                 "is_hot": 0,
                 "title": "999",
                 "note": "文字描述文字描述文字描述文字描述文字描述文字描述文字描述文字描述文字描述文字描述文字描述文字描述文字描述文字描述文字描述",
@@ -159,7 +157,7 @@
                 "length": 11,
                 "play_num": 0,
                 "fav_num": 0,
-                "allbackgrund": ["http://app.starsound.xyz/user/SghpYRxU25/image/20170814/oh1hl5qjq7997eiuok17.jpg", "http://wx.qlogo.cn/mmopen/AAl6RUmA2UaXV1nOpFYoHI5qOogUap4mZCQo7icibWR2R3FXWQLJbI6E8h1XKFbhyutk9iaQ2yetc9YFVgBlSZAb3iaHxWrfYgzD/0"],
+                "allbackgrund": "http://app.starsound.xyz/user/GmccLhMttOj/image/20171106/xvimu3qb8mi996wqwcsk.jpeg,http://app.starsound.xyz/user/GmccLhMttOj/image/20171106/frrtnd047imaqdt294h9.jpeg,http://app.starsound.xyz/user/GmccLhMttOj/image/20171106/6iq2xvp35t173j0f37q7.jpeg",
                 "backgrund": "http://app.starsound.xyz/user/SghpYRxU25/image/20170814/oh1hl5qjq7997eiuok17.jpg",
                 "addtime": "2017-08-14 09:46:23",
                 "user": {
@@ -185,11 +183,12 @@
                 }
             });
             ap.play();
-            if (data.result[0].allbackgrund.length > 0) {
+            var allbackgrund = data.result[0].allbackgrund.split(',');
+            if (allbackgrund.length > 1) {
                 $("#divFM").hide();
                 $("#divSwiper").show();
 
-                data.result[0].allbackgrund.forEach(function(item) {
+                allbackgrund.forEach(function(item) {
                     $(".swiper-wrapper").append("<div class=\"swiper-slide\" style=\"background-image:url(" + item + ")\"></div>");
 
                 });
