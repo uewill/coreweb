@@ -146,80 +146,81 @@
     <script>
         //<![CDATA[
         $(document).ready(function() {
-            if (/(iPhone|iPad|iPod|iOS)/i.test(navigator.userAgent)) {
-                //alert(navigator.userAgent + "ios");
-                $("#btnOpenApp").attr("href", "https://itunes.apple.com/cn/app/%E6%98%9F%E5%A3%B0/id1217353797?mt=8");
-            } else if (/(Android)/i.test(navigator.userAgent)) {
-                //alert(navigator.userAgent + "android");
-                $("#btnOpenApp").attr("href", "http://app.qq.com/#id=detail&appid=1106189366");
-            } else {
-                $("#btnOpenApp").attr("href", "http://app.qq.com/#id=detail&appid=1106189366");
-            };
+            try {
+                if (/(iPhone|iPad|iPod|iOS)/i.test(navigator.userAgent)) {
+                    //alert(navigator.userAgent + "ios");
+                    $("#btnOpenApp").attr("href", "https://itunes.apple.com/cn/app/%E6%98%9F%E5%A3%B0/id1217353797?mt=8");
+                } else if (/(Android)/i.test(navigator.userAgent)) {
+                    //alert(navigator.userAgent + "android");
+                    $("#btnOpenApp").attr("href", "http://app.qq.com/#id=detail&appid=1106189366");
+                } else {
+                    $("#btnOpenApp").attr("href", "http://app.qq.com/#id=detail&appid=1106189366");
+                };
 
 
-            var vid = 0;
-            var reg = new RegExp("(^|&)vid=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象
-            var r = window.location.search.substr(1).match(reg); //匹配目标参数
-            if (r != null) {
-                vid = unescape(r[2]);
-            }
-            if (vid == 0) {
-                return;
-            }
-            $.getJSON("http://www.starsound.xyz/yuliao/index.php/api/playVoice?vid=" + vid, function(data) {
-                if (data) {
-                    $("#audioTitle").html(data.result[0].title);
-                    $("#divDesc").html(data.result[0].note);
-                    document.title = data.result[0].title + "-星声";
-
-
-                    if (data.result[0].reurl != null) {
-                        var ap = new APlayer({
-                            element: document.getElementById('aplayer1'),
-                            autoplay: true,
-                            mode: 'single',
-                            music: {
-                                title: data.result[0].title,
-                                author: data.result[0].user.nickname,
-                                pic: data.result[0].user.headpic,
-                                url: data.result[0].reurl,
-                            }
-                        });
-                        ap.play();
-                    }
-                    var allbackgrund = [];
-                    var allbackgrunds = data.result[0].allbackgrund;
-                    if (allbackgrunds && allbackgrunds != "") {
-                        allbackgrund = data.result[0].allbackgrund.split(',');
-                    }
-                    if (allbackgrund.length > 1) {
-                        $("#divFM").hide();
-                        $("#divSwiper").show();
-                        allbackgrund.forEach(function(item) {
-                            if (item != 'null' && item != null && item != undefined) {
-                                $(".swiper-wrapper").append("<div class=\"swiper-slide\" style=\"background-image:url(" + item + ")\"></div>");
-                            }
-                        });
-                        var swiper = new Swiper('.swiper-container', {
-                            pagination: '.swiper-pagination',
-                            grabCursor: true,
-                            cube: {
-                                shadow: true,
-                                slideShadows: true,
-                                shadowOffset: 20,
-                                shadowScale: 0.94
-                            }
-                        });
-                    } else {
-                        console.log(data);
-                        $("#audioFM").attr("src", data.result[0].backgrund);
-                        $("#divSwiper").hide();
-                        $("#divFM").show();
-                    }
+                var vid = 0;
+                var reg = new RegExp("(^|&)vid=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象
+                var r = window.location.search.substr(1).match(reg); //匹配目标参数
+                if (r != null) {
+                    vid = unescape(r[2]);
                 }
-            });
+                if (vid == 0) {
+                    return;
+                }
+                $.getJSON("http://www.starsound.xyz/yuliao/index.php/api/playVoice?vid=" + vid, function(data) {
+                    if (data) {
+                        $("#audioTitle").html(data.result[0].title);
+                        $("#divDesc").html(data.result[0].note);
+                        document.title = data.result[0].title + "-星声";
 
 
+                        if (data.result[0].reurl != null) {
+                            var ap = new APlayer({
+                                element: document.getElementById('aplayer1'),
+                                autoplay: true,
+                                mode: 'single',
+                                music: {
+                                    title: data.result[0].title,
+                                    author: data.result[0].user.nickname,
+                                    pic: data.result[0].user.headpic,
+                                    url: data.result[0].reurl,
+                                }
+                            });
+                            ap.play();
+                        }
+                        var allbackgrund = [];
+                        var allbackgrunds = data.result[0].allbackgrund;
+                        if (allbackgrunds && allbackgrunds != "") {
+                            allbackgrund = data.result[0].allbackgrund.split(',');
+                        }
+                        if (allbackgrund.length > 1) {
+                            $("#divFM").hide();
+                            $("#divSwiper").show();
+                            allbackgrund.forEach(function(item) {
+                                if (item != 'null' && item != null && item != undefined) {
+                                    $(".swiper-wrapper").append("<div class=\"swiper-slide\" style=\"background-image:url(" + item + ")\"></div>");
+                                }
+                            });
+                            var swiper = new Swiper('.swiper-container', {
+                                pagination: '.swiper-pagination',
+                                grabCursor: true,
+                                cube: {
+                                    shadow: true,
+                                    slideShadows: true,
+                                    shadowOffset: 20,
+                                    shadowScale: 0.94
+                                }
+                            });
+                        } else {
+                            $("#audioFM").attr("src", data.result[0].backgrund);
+                            $("#divSwiper").hide();
+                            $("#divFM").show();
+                        }
+                    }
+                });
+            } catch (err) {
+
+            }
         });
         //]]>
     </script>
