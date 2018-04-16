@@ -3,8 +3,10 @@ import {
   ActivityIndicator,
   StatusBar,
   StyleSheet,
-  View,AsyncStorage
+  View
 } from 'react-native';
+
+import {LocalStorage} from '../common/utils'
 
 
 export default class WelcomeScreen extends React.Component {
@@ -18,11 +20,15 @@ export default class WelcomeScreen extends React.Component {
 
   // Fetch the token from storage then navigate to our appropriate place
   _bootstrapAsync = async () => {
-    const userToken = await AsyncStorage.getItem('userToken');
-
+    var promiseWelcome = new Promise(function(resolve, reject) {
+      setTimeout(resolve, 1000);//延迟3秒
+    });
+    var promiseToken = LocalStorage.getItem('userToken');
+    const userToken=  await Promise.all([promiseToken,promiseWelcome]);
+   // const userToken = await LocalStorage.getItem('userToken');
     // This will switch to the App screen or Auth screen and this loading
     // screen will be unmounted and thrown away.
-    this.props.navigation.navigate(userToken ? 'App' : 'Auth');
+    this.props.navigation.navigate(userToken[0] ? 'App' : 'Auth');
   };
 
   // Render any loading content that you like here

@@ -1,7 +1,14 @@
 import React from 'react';
 import { View, Text,Button,AsyncStorage } from 'react-native';
+import { createStackNavigator,StackNavigator} from 'react-navigation';
+import BaseHeader from '../components/header/baseheader'
 
-export default class MainScreen extends React.Component {
+class MainScreen extends React.Component {
+  static navigationOptions = {
+       tabBarLabel:'发现',
+       title:'发现',
+     header:<BaseHeader/>
+  }
   render() {
     return (
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
@@ -10,3 +17,11 @@ export default class MainScreen extends React.Component {
     );
   }
 }
+const main = <MainScreen/>;
+const SearchStack= StackNavigator({
+  Login: {
+  screen:MainScreen,
+  }
+});
+
+export default SearchStack;

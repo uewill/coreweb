@@ -1,5 +1,6 @@
 import React from 'react';
-import { View, Text,Button,AsyncStorage } from 'react-native';
+import { View, Text,Button } from 'react-native';
+import {LocalStorage} from '../common/utils'
 
 export default class LoginScreen extends React.Component {
     static navigationOptions = {
@@ -14,7 +15,7 @@ export default class LoginScreen extends React.Component {
     );
   }
   _signInAsync = async () => {
-    await AsyncStorage.setItem('userToken', 'abc');
+    await LocalStorage.setItem('userToken', 'abc');
     this.props.navigation.navigate('App');
   };
 }
